@@ -4,7 +4,7 @@ import { filterByName } from 'redux/filterSlice';
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector(state=>state.filter);
 
   const handleFilterChange = e => {
      dispatch(filterByName(e.target.value))

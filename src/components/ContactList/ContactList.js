@@ -8,8 +8,8 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contactsSlice';
 
-const ContactList = ({contacts}) => {
-  const dispatch = useDispatch()
+const ContactList = ({ contacts }) => {
+  const dispatch = useDispatch();
 
   return (
     <ContactContainer>
@@ -23,7 +23,6 @@ const ContactList = ({contacts}) => {
           </ButtonDelete>{' '}
         </ListItem>
       ))}
-     
     </ContactContainer>
   );
 };
@@ -38,5 +37,4 @@ ContactList.propTypes = {
       number: PropTypes.string.isRequired,
     })
   ).isRequired,
-  
 };

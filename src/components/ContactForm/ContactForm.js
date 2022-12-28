@@ -11,7 +11,7 @@ export const ContactForm = () => {
   const nameInputId = nanoid();
   const numberInputId = nanoid();
 
-  const dispatch =useDispatch()
+  const dispatch = useDispatch();
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -32,14 +32,13 @@ export const ContactForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-   dispatch(addContact(name, number))
-    resetForm()
-
+    dispatch(addContact(name, number));
+    resetForm();
   };
   const resetForm = () => {
-    setName('')
-    setNumber('')
-}
+    setName('');
+    setNumber('');
+  };
   return (
     <Form onSubmit={handleSubmit}>
       <Label htmlFor={nameInputId}>
@@ -74,7 +73,5 @@ export const ContactForm = () => {
     </Form>
   );
 };
-
-
 
 export default ContactForm;
