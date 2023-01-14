@@ -37,23 +37,9 @@ export const App = () => {
       <ContactForm />
       <Filter />
       <ContactsTitle>Contacts</ContactsTitle>
-      {contacts && <ContactList />}
-      {!contacts && Notiflix.Notify.info('Your phonebook is empty. Please add contact.', {
-          position: 'center-bottom',
-          backOverlay: true,
-          clickToClose: true,
-          closeButton: true,
-          info: {
-            background: '#8f9a9b',
-            textColor: '#0c0b0b',
-            childClassName: 'notiflix-notify-info',
-            notiflixIconColor: '#f7f4f4',
-            fontAwesomeClassName: 'fas fa-info-circle',
-            backOverlayColor: 'rgba(38,192,211,0.2)',
-          },
-        })}
 
-      {/* {contacts ? (
+
+      {contacts ? (
         <ContactList />
       ) : (
         Notiflix.Notify.info('Your phonebook is empty. Please add contact.', {
@@ -70,7 +56,7 @@ export const App = () => {
             backOverlayColor: 'rgba(38,192,211,0.2)',
           },
         })
-      )} */}
+      )}
     </PhonebookContainer>
   );
 };
