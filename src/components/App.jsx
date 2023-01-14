@@ -1,6 +1,6 @@
 import ContactForm from './ContactForm';
 import Filter from './Filter';
-import Notiflix from 'notiflix';
+
 import { PhoneBook, PhonebookContainer, ContactsTitle } from './App.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -38,8 +38,8 @@ export const App = () => {
       <Filter />
       <ContactsTitle>Contacts</ContactsTitle>
 
-
-      {contacts.length >0 ? (
+{contacts.length > 0 && <ContactList/>}
+      {/* {contacts.length >0 ? (
         <ContactList />
       ) : (
         Notiflix.Notify.info('Your phonebook is empty. Please add contact.', {
@@ -56,7 +56,7 @@ export const App = () => {
             backOverlayColor: 'rgba(38,192,211,0.2)',
           },
         })
-      )}
+      )} */}
     </PhonebookContainer>
   );
 };
