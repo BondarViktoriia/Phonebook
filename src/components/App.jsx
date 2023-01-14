@@ -27,7 +27,7 @@ export const App = () => {
   console.log('isLoading', isLoading);
   console.log('error', error);
 
-  console.log('contacts.length', contacts.length);
+
 
   console.log('filter', filter);
 
@@ -38,7 +38,7 @@ export const App = () => {
       <Filter />
       <ContactsTitle>Contacts</ContactsTitle>
 
-      {contacts.length >= 1 ? (
+      {contacts ? (
         <ContactList />
       ) : (
         Notiflix.Notify.info('Your phonebook is empty. Please add contact.', {
