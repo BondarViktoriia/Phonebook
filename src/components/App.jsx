@@ -39,7 +39,7 @@ export const App = () => {
       <ContactsTitle>Contacts</ContactsTitle>
 
 
-      {contacts ? (
+      {contacts.length >0 ? (
         <ContactList />
       ) : (
         Notiflix.Notify.info('Your phonebook is empty. Please add contact.', {
