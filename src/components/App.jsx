@@ -5,7 +5,12 @@ import { PhoneBook, PhonebookContainer, ContactsTitle } from './App.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operations';
-import { selectContacts, selectError, selectFilter, selectIsLoading } from 'redux/selectors';
+import {
+  selectContacts,
+  selectError,
+  selectFilter,
+  selectIsLoading,
+} from 'redux/selectors';
 import ContactList from './ContactList';
 
 export const App = () => {
@@ -15,29 +20,27 @@ export const App = () => {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
 
-
-  useEffect(()  => {
-    dispatch(fetchContacts())
+  useEffect(() => {
+    dispatch(fetchContacts());
   }, [dispatch]);
 
-
   console.log('isLoading', isLoading);
-  console.log('error',error);
+  console.log('error', error);
 
   console.log('contacts', contacts);
-  
-  console.log("filter",filter);
+
+  console.log('filter', filter);
 
   return (
     <PhonebookContainer>
-     
       <PhoneBook>Phonebook</PhoneBook>
       <ContactForm />
       <Filter />
       <ContactsTitle>Contacts</ContactsTitle>
-      {/* {contacts.length > 0 && <ContactList />} */}
 
-      {contacts.length >0? <ContactList/>:(
+      {contacts.length > 0 ? (
+        <ContactList />
+      ) : (
         Notiflix.Notify.info('Your phonebook is empty. Please add contact.', {
           position: 'center-bottom',
           backOverlay: true,
@@ -51,9 +54,8 @@ export const App = () => {
             fontAwesomeClassName: 'fas fa-info-circle',
             backOverlayColor: 'rgba(38,192,211,0.2)',
           },
-        }))}
-
-    
+        })
+      )}
     </PhonebookContainer>
   );
 };
