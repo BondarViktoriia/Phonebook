@@ -1,6 +1,6 @@
 import ContactForm from './ContactForm';
 import Filter from './Filter';
-// import Notiflix from 'notiflix';
+import Notiflix from 'notiflix';
 import { PhoneBook, PhonebookContainer, ContactsTitle } from './App.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -37,7 +37,21 @@ export const App = () => {
       <ContactForm />
       <Filter />
       <ContactsTitle>Contacts</ContactsTitle>
-      {contacts.length > 0 && <ContactList/>}
+      {contacts && <ContactList />}
+      {!contacts && Notiflix.Notify.info('Your phonebook is empty. Please add contact.', {
+          position: 'center-bottom',
+          backOverlay: true,
+          clickToClose: true,
+          closeButton: true,
+          info: {
+            background: '#8f9a9b',
+            textColor: '#0c0b0b',
+            childClassName: 'notiflix-notify-info',
+            notiflixIconColor: '#f7f4f4',
+            fontAwesomeClassName: 'fas fa-info-circle',
+            backOverlayColor: 'rgba(38,192,211,0.2)',
+          },
+        })}
 
       {/* {contacts ? (
         <ContactList />
