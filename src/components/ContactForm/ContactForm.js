@@ -5,8 +5,6 @@ import { addContact } from 'redux/operations';
 import { selectContacts } from 'redux/selectors';
 import Notiflix from 'notiflix';
 
-
-
 export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -33,7 +31,7 @@ export const ContactForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-      const isNameAdded = contacts.some(
+    const isNameAdded = contacts.some(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
     const isNumberAdded = contacts.some(contact => contact.number === number);
@@ -42,14 +40,13 @@ export const ContactForm = () => {
       Notiflix.Notify.failure(`${name} is alredy in contacts`);
       return;
     } else if (isNumberAdded) {
-        Notiflix.Notify.failure(`${number} is alredy in contacts`);
+      Notiflix.Notify.failure(`${number} is alredy in contacts`);
       return;
     }
- 
-    const newContact = addContact({ name, number });
-   
-    dispatch(newContact );
 
+    const newContact = addContact({ name, number });
+
+    dispatch(newContact);
 
     setName('');
     setNumber('');

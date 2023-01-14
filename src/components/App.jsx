@@ -1,6 +1,11 @@
 import ContactForm from './ContactForm';
 import Filter from './Filter';
-import { PhoneBook, PhonebookContainer, ContactsTitle,EmptyPhonebook } from './App.styled';
+import {
+  PhoneBook,
+  PhonebookContainer,
+  ContactsTitle,
+  EmptyPhonebook,
+} from './App.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operations';
@@ -11,7 +16,6 @@ import {
   selectIsLoading,
 } from 'redux/selectors';
 import ContactList from './ContactList';
-
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -27,7 +31,7 @@ export const App = () => {
   console.log('isLoading', isLoading);
   console.log('error', error);
 
-console.log('!contacts',!contacts);
+  console.log('!contacts', !contacts);
 
   console.log('filter', filter);
 
@@ -39,12 +43,11 @@ console.log('!contacts',!contacts);
       <ContactsTitle>Contacts</ContactsTitle>
 
       {contacts.length > 0 && <ContactList />}
-        {contacts.length === 0 && !isLoading && !error && (
-        <EmptyPhonebook >
+      {contacts.length === 0 && !isLoading && !error && (
+        <EmptyPhonebook>
           There are no saved contacts in your phonebook
         </EmptyPhonebook>
       )}
-
     </PhonebookContainer>
   );
 };
