@@ -27,7 +27,7 @@ export const App = () => {
   console.log('isLoading', isLoading);
   console.log('error', error);
 
-  console.log('contacts', contacts);
+  console.log('contacts.length', contacts.length);
 
   console.log('filter', filter);
 
