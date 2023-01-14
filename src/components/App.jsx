@@ -1,7 +1,6 @@
 import ContactForm from './ContactForm';
 import Filter from './Filter';
-
-import { PhoneBook, PhonebookContainer, ContactsTitle } from './App.styled';
+import { PhoneBook, PhonebookContainer, ContactsTitle,EmptyPhonebook } from './App.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operations';
@@ -12,6 +11,7 @@ import {
   selectIsLoading,
 } from 'redux/selectors';
 import ContactList from './ContactList';
+
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ export const App = () => {
   console.log('isLoading', isLoading);
   console.log('error', error);
 
-
+console.log('!contacts',!contacts);
 
   console.log('filter', filter);
 
@@ -38,25 +38,13 @@ export const App = () => {
       <Filter />
       <ContactsTitle>Contacts</ContactsTitle>
 
-{contacts.length > 0 && <ContactList/>}
-      {/* {contacts.length >0 ? (
-        <ContactList />
-      ) : (
-        Notiflix.Notify.info('Your phonebook is empty. Please add contact.', {
-          position: 'center-bottom',
-          backOverlay: true,
-          clickToClose: true,
-          closeButton: true,
-          info: {
-            background: '#8f9a9b',
-            textColor: '#0c0b0b',
-            childClassName: 'notiflix-notify-info',
-            notiflixIconColor: '#f7f4f4',
-            fontAwesomeClassName: 'fas fa-info-circle',
-            backOverlayColor: 'rgba(38,192,211,0.2)',
-          },
-        })
-      )} */}
+      {contacts.length > 0 && <ContactList />}
+        {contacts.length === 0 && !isLoading && !error && (
+        <EmptyPhonebook >
+          There are no saved contacts in your phonebook
+        </EmptyPhonebook>
+      )}
+
     </PhonebookContainer>
   );
 };

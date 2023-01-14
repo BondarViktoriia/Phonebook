@@ -21,3 +21,11 @@ export const ContactsTitle = styled.h2`
   margin-bottom: 20px;
   text-transform: uppercase;
 `;
+
+export const EmptyPhonebook = styled.div`
+   color: rgb(94, 84, 57);
+  font-size: 35px;
+  margin: 0;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+`
