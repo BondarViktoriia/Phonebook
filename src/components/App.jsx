@@ -1,33 +1,43 @@
 import ContactForm from './ContactForm';
-// import  { useState,useEffect } from 'react';
-import ContactList from './ContactList';
-// import { nanoid } from 'nanoid';
 import Filter from './Filter';
 import Notiflix from 'notiflix';
 import { PhoneBook, PhonebookContainer, ContactsTitle } from './App.styled';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchContacts } from 'redux/operations';
+import { selectContacts, selectError, selectFilter, selectIsLoading } from 'redux/selectors';
+import ContactList from './ContactList';
 
 export const App = () => {
-  const contacts = useSelector(state => state.contacts);
-  console.log('app', contacts);
-  const filter = useSelector(state => state.filter);
-  console.log(filter);
+  const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
 
-  const normalizedFilter = filter.trim().toLowerCase();
-  const filterContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(normalizedFilter)
-  );
+
+  useEffect(()  => {
+    dispatch(fetchContacts())
+  }, [dispatch]);
+
+
+  console.log('isLoading', isLoading);
+  console.log('error',error);
+
+  console.log('contacts', contacts);
+  
+  console.log("filter",filter);
 
   return (
     <PhonebookContainer>
+     
       <PhoneBook>Phonebook</PhoneBook>
       <ContactForm />
       <Filter />
-
       <ContactsTitle>Contacts</ContactsTitle>
-      {filterContacts.length > 0 ? (
-        <ContactList contacts={filterContacts} />
-      ) : (
+      {/* {contacts.length > 0 && <ContactList />} */}
+
+      {contacts.length >0? <ContactList/>:(
         Notiflix.Notify.info('Your phonebook is empty. Please add contact.', {
           position: 'center-bottom',
           backOverlay: true,
@@ -41,8 +51,9 @@ export const App = () => {
             fontAwesomeClassName: 'fas fa-info-circle',
             backOverlayColor: 'rgba(38,192,211,0.2)',
           },
-        })
-      )}
+        }))}
+
+    
     </PhonebookContainer>
   );
 };
