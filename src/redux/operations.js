@@ -45,26 +45,3 @@ export const deleteContact = createAsyncThunk("contacts/deleteContact",
   }
 })
 
-
-// [
-//  {
-//   "number": "459-12-56",
-//   "name": "Rosie Simpson",
-//   "id": "1"
-//  },
-//  {
-//   "number": "443-89-12",
-//   "name": "Hermione Kline",
-//   "id": "2"
-//  },
-//  {
-//   "number": "645-17-79",
-//   "name": "Eden Clements",
-//   "id": "3"
-//  },
-//  {
-//   "number": "227-91-26",
-//   "name": "Annie Copeland",
-//   "id": "4"
-//  }
-// ]
