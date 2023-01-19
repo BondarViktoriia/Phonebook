@@ -11,8 +11,14 @@ export const ButtonDelete = styled.button`
   height: 25px;
   text-align: center;
   justify-content: center;
-  background-color: rgb(250, 184, 2);
+  background: rgb(19, 212, 44);
+  background: radial-gradient(
+    circle,
+    rgba(19, 212, 44, 1) 22%,
+    rgba(38, 38, 39, 1) 76%
+  );
   border: none;
-  border-radius: 3px;
+  border-radius: 8px;
   cursor: pointer;
+  color: #fff;
 `;

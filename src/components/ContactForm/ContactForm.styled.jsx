@@ -6,9 +6,8 @@ export const Form = styled.form`
 
   width: 400px;
   height: 275px;
-  margin: auto;
+
   background-color: rgb(225, 234, 235);
-  margin-bottom: 20px;
 `;
 export const Label = styled.label`
   display: flex;
@@ -34,6 +33,13 @@ export const ButtonAdd = styled.button`
   width: 110px;
   height: 45px;
   text-transform: uppercase;
-  background-color: rgb(250, 184, 2);
-  color: rgb(94, 84, 57);
+  background: rgb(19, 212, 44);
+  background: radial-gradient(
+    circle,
+    rgba(19, 212, 44, 1) 22%,
+    rgba(38, 38, 39, 1) 76%
+  );
+  color: #fff;
+  border-radius: 8px;
+  border: none;
 `;

@@ -8,16 +8,12 @@ const Filter = () => {
   const filter = useSelector(selectFilter);
 
   const handleFilterChange = e => {
-     dispatch(filterByName(e.target.value))
-   }
+    dispatch(filterByName(e.target.value));
+  };
   return (
     <FilterLabel>
       Find contacts by name
-      <FilterInput
-        type="text"
-        value={filter}
-        onChange={handleFilterChange}
-      />
+      <FilterInput type="text" value={filter} onChange={handleFilterChange} />
     </FilterLabel>
   );
 };
