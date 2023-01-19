@@ -19,9 +19,6 @@ zapoznania się z ustawieniami dodatkowych opcji
    [zgodnie z instrukcją](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url).
 6. Utwórz bazowe zależności projektu przy pomocy polecenia `npm install`.
 7. Włącz tryb pracy, wykonując polecenie `npm start`.
-8. Przejdź w przeglądarce pod adres
-   [http://localhost:3000](http://localhost:3000). Ta strona będzie
-   automatycznie przeładowywać się po zapisaniu zmian w plikach projektu.
 
 ## Deployment
 
