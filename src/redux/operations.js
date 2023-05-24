@@ -40,3 +40,4 @@ export const deleteContact = createAsyncThunk(
     }
   }
 );
+
